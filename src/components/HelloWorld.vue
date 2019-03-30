@@ -112,7 +112,7 @@ export default {
   },
   mounted () {
     // 取cookie
-    this.openSimple = !this.$cookie.get('s1new')
+    this.openSimple = !this.$cookie.get('szpic')
   },
   methods: {
     // logo的点击事件
@@ -203,7 +203,7 @@ export default {
     },
     bClose () {
       this.openSimple = false
-      this.$cookie.set('s1new', 'Helloworld', parseInt(this.info.adInfo.interval))
+      this.$cookie.set('szpic', 'Helloworld', parseInt(this.info.adInfo.interval))
     }
   }
 }
