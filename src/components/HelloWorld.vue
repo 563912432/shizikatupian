@@ -5,7 +5,7 @@
       <ul v-loading.body="loading">
         <li v-for="(item, index) in msg" :key="index"
             :class="[index % 2 === 0?'white':'green']"
-            @click="click($event)"
+            @click="click(item.id)"
             :cid="item.id"
             :title="item.title">
           <i :class="[index % 2 === 0?'col-green':'col-white','el-icon-arrow-right']" style="font-weight: bold;"></i><span class="space">{{ item.title }}</span>
@@ -197,8 +197,8 @@ export default {
       }
       obj.send(data)
     },
-    click (el) {
-      let cid = el.target.getAttribute('cid')
+    click (cid) {
+      // let cid = el.target.getAttribute('cid')
       this.$router.push({path: '/list/' + cid})
     },
     bClose () {
