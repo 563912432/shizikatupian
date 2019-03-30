@@ -32,8 +32,9 @@
       </div>
     </div>
     <div class="learn-gif" v-show="!isShow" @click='learn($event)' tag='1'>
-      <img v-if="gif" id="gif" style="width: 100%;">
-      <span v-else style="color: #ffffff;font-size: 20px">暂无图片</span>
+      <div class="btnClose" @click="bClose()">X</div>
+      <img v-if="gif" id="gif" style="width: 100%;margin: 0 auto">
+      <!--<span v-else style="color: #ffffff;font-size: 20px">暂无图片</span>-->
     </div>
   </div>
 </template>
@@ -143,6 +144,11 @@ export default {
         }
       }
     },
+    bClose () {
+      this.isShow = !this.isShow
+      let gif = document.getElementById('gif')
+      gif.src = ''
+    },
     createAudio () {
       if (!this.audio) {
         this.audio = this.$refs.audio
@@ -180,6 +186,20 @@ export default {
 }
 </script>
 <style scoped>
+  .btnClose{
+    width: 25px;
+    height: 25px;
+    line-height:25px;
+    /*margin:5px auto 0;*/
+    align-self: flex-end;
+    /*margin-bottom: 5px;*/
+    margin-right: 5px;
+    text-align:center;
+    color: #ffffff;
+    border-radius:50%;
+    border: solid 2px #ffffff;
+    background-color: transparent;
+  }
   .detail {
     flex: 1;
     display: flex;
@@ -248,7 +268,7 @@ export default {
     z-index: 10;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /*align-items: center;*/
     justify-content: center;
     background-color: #000000;
   }
